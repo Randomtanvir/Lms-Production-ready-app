@@ -15,7 +15,6 @@ const FilterLeftSideBar = ({ showFilters, courses }) => {
   const selectedDuration = searchParams.get("Duration")?.split(",") || [];
   const selectedCourseLevel = searchParams.get("CourseLevel")?.split(",") || [];
   const selectedCategories = searchParams.get("category")?.split(",") || [];
-  console.log(selectedRatings);
 
   const tools = getToolsFormCoures(courses, "tools");
   const ratings = getToolsFormCoures(courses, "rating");
@@ -26,7 +25,7 @@ const FilterLeftSideBar = ({ showFilters, courses }) => {
   return (
     <>
       {showFilters && (
-        <div className="col-span-1 bg-white p-1">
+        <div className="col-span-1 w-[312px] h-screen bg-white overflow-auto p-1">
           <div className="p-4 rounded-sm border w-full">
             <h1 className="text-2xl text-black mb-2 pb-6 uppercase font-semibold border-b">
               Category
@@ -41,7 +40,6 @@ const FilterLeftSideBar = ({ showFilters, courses }) => {
           <FilterCard title="Tools" items={tools} />
           {/* rating  */}
           <FilterCard title="Rating" items={ratings} />
-
           {/* courseLevel  */}
           <FilterCard title="CourseLevel" items={courseLevel} />
           {/* price  */}
