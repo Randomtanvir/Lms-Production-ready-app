@@ -15,8 +15,8 @@ import StarRating from "./StarRating";
 export default function StudentFeedBackCard({ reviews }) {
   return (
     <>
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-semibold text-[#1D2026]">
+      <div className="flex flex-wrap justify-between items-center mb-6">
+        <h2 className="text-2xl font-semibold text-[#1D2026] mb-4 md:mb-0">
           Students Feedback
         </h2>
         <DropdownMenu>
@@ -38,13 +38,13 @@ export default function StudentFeedBackCard({ reviews }) {
 
       <div className="space-y-4">
         {reviews.map((review) => (
-          <Card key={review.id} className="hover:shadow-md transition-shadow">
+          <Card key={review.id} className="hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-col md:flex-row">
                 <img
                   src={review.avatar}
                   alt={review.author}
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full mx-auto md:mx-0"
                 />
                 <div className="flex-1 space-y-2">
                   <div className="flex items-center gap-2">
@@ -68,10 +68,10 @@ export default function StudentFeedBackCard({ reviews }) {
       </div>
 
       <div className="flex justify-start pt-3">
-        <Button className="w-[165px] h-12 flex justify-center items-center gap-3 bg-[#FFEEE8] text-[#FF6636] font-semibold rounded">
+        <Button className="w-[165px] h-12 flex justify-center items-center gap-3 bg-primary-300 text-primary-500 font-semibold rounded hover:bg-primary-200 transition-colors">
           <span>Load More</span>
 
-          <div className="animate-spin w-6 h-6 border-2 border-[#FF6636] border-t-transparent rounded-full" />
+          <div className="animate-spin w-6 h-6 border-2 border-primary-500 border-t-transparent rounded-full" />
         </Button>
       </div>
     </>

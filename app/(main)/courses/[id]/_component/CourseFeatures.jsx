@@ -21,10 +21,13 @@ export default function CourseFeatures() {
 
   return (
     <div className="space-y-4">
-      <h3 className="font-medium">This course includes:</h3>
+      <h3 className="font-medium text-xl">This course includes:</h3>
       <ul className="space-y-3">
         {features.map(({ icon: Icon, text }) => (
-          <li key={text} className="flex items-center gap-3">
+          <li
+            key={text}
+            className="flex items-center gap-3 hover:bg-gray-100 p-2 rounded-md transition-all"
+          >
             <Icon className="w-6 h-6 text-[#FF6636]" />
             <span className="text-gray-700">{text}</span>
           </li>

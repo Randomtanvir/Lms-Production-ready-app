@@ -1,16 +1,12 @@
 import { getCourseById } from "@/lib/fetchData";
-
 import CourseDetails from "./_component/CourseDetails";
-
 import CourseInstructor from "./_component/CourseInstructor";
 import CourseLearning from "./_component/CourseLearning";
 import CoursePreview from "./_component/CoursePreview";
 import CourseRating from "./_component/CourseRating";
-
 import Breadcrumb from "./_component/Breadcrumb";
 import CourseSidebar from "./_component/CourseSidebar";
 import CourseTabs from "./_component/CourseTabs";
-
 import CourseDescription from "./_component/CourseDescription";
 import CourseInfo from "./_component/CourseInfo";
 import CourseTitle from "./_component/CourseTitle";
@@ -23,12 +19,15 @@ export default async function Home({ params }) {
   const course = await getCourseById(id);
 
   return (
-    <div className="h-full w-full">
+    <div className="w-full h-full">
+      {/* Top background layer */}
       <div className="w-full min-h-screen relative">
-        <div className="flex flex-col  absulate top-0 h-[370px] w-full bg-gray-100"></div>
+        <div className="absolute top-0 h-[370px] w-full bg-gray-100"></div>
 
-        <div className="flex-1 px-10 py-2 flex gap-6 w-[1320px] mx-auto  bg-transparent -mt-[330px] ">
-          <div className="flex flex-col  gap-4 w-full">
+        {/* Main Content */}
+        <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col lg:flex-row gap-6">
+          {/* Main Left Side */}
+          <div className="flex flex-col gap-4 w-full">
             <Breadcrumb />
             <CourseTitle title={course.title} subtitle={course.subtitle} />
             <CourseInfo course={course} />
@@ -38,24 +37,32 @@ export default async function Home({ params }) {
             <CourseLearning />
             <CourseDetails />
 
-            {/* Ensure the ID matches the tab name */}
+            {/* Curriculum */}
             <section id="curriculum">
               <Curriculum />
             </section>
 
+            {/* Instructor */}
             <section id="instructor">
               <CourseInstructor instructors={course.instructors} />
             </section>
 
+            {/* Reviews */}
             <section id="review">
               <CourseRating />
               <StudentFeedback reviews={course.user_reviews} />
             </section>
           </div>
-          <CourseSidebar course={course} />
+
+          {/* Sidebar (responsive) */}
+          <div className="w-full lg:w-[350px] shrink-0">
+            <CourseSidebar course={course} />
+          </div>
         </div>
       </div>
-      <div className="w-full">
+
+      {/* Related Courses */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 mt-10">
         <RelatedCourses course={course} />
       </div>
     </div>

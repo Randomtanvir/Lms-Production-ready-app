@@ -10,9 +10,9 @@ const ratings = [
 
 const CourseRating = () => {
   return (
-    <div className="bg-white w-full flex gap-4 ">
+    <div className="bg-white w-full flex gap-4 flex-wrap md:flex-nowrap">
       {/* Rating Summary */}
-      <div className="flex flex-col items-center border justify-center w-1/5 border-r pr-6 text-center">
+      <div className="flex flex-col items-center border justify-center w-full md:w-1/5 border-r pr-6 text-center mb-4 md:mb-0">
         <h2 className="text-4xl font-bold">4.8</h2>
         <div className="flex justify-center text-orange-400 text-xl mt-2">
           {Array.from({ length: 5 }, (_, i) => (
@@ -23,12 +23,13 @@ const CourseRating = () => {
       </div>
 
       {/* Rating Breakdown */}
-      <div className="w-4/5 border">
+      <div className="w-full md:w-4/5 border">
         <div className="p-4">
-          {" "}
-          <h3 className="text-lg font-semibold mb-2">Course Rating</h3>
+          <h3 className="text-lg font-semibold mb-2">
+            Course Rating Breakdown
+          </h3>
           {ratings.map((rating) => (
-            <div key={rating.stars} className="flex items-center mb-2">
+            <div key={rating.stars} className="flex items-center mb-4">
               <div className="flex text-[#FD8E1F] text-lg mr-2">
                 {Array.from({ length: 5 }, (_, i) => (
                   <span key={i}>{i < rating.stars ? "★" : "☆"}</span>

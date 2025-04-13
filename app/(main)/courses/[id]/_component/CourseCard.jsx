@@ -28,7 +28,7 @@ export default function CourseSidebar({
   subtitleLanguage,
 }) {
   return (
-    <div className="w-[424px] bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6">
+    <div className="w-full max-w-[424px] bg-white border border-gray-200 rounded-lg shadow-lg p-6 space-y-6 mx-auto">
       {/* Price Section */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
@@ -57,7 +57,7 @@ export default function CourseSidebar({
       </button>
 
       {/* Small Buttons */}
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap">
         <button className="flex-1 py-2 px-4 border border-gray-200 rounded-lg text-gray-700 font-medium hover:bg-gray-100 transition">
           Add To Wishlist
         </button>
@@ -117,7 +117,7 @@ export default function CourseSidebar({
       {/* Share Section */}
       <div className="pt-6 space-y-4 border-t border-gray-200">
         <h3 className="font-medium">Share this course:</h3>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           {[
             { icon: Link2, label: "Copy Link" },
             { icon: Facebook, label: "Facebook" },
