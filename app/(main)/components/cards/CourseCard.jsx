@@ -15,7 +15,7 @@ export default function CourseCard({
 }) {
   return (
     <Link href={`/courses/${id}`}>
-      <Card className="w-60 p-0 shadow-none transition duration-300 ease-in-out hover:shadow-lg hover:scale-105">
+      <Card className="w-full sm:w-72 md:w-60 p-0 shadow-none transition duration-300 ease-in-out hover:shadow-lg hover:scale-105">
         {/* Top Image */}
         <div className="relative">
           <Image
@@ -28,8 +28,8 @@ export default function CourseCard({
         </div>
 
         {/* Details Section */}
-        <div>
-          <div className="flex items-center justify-between mb-2 p-3">
+        <div className="p-3">
+          <div className="flex items-center justify-between mb-2">
             <span
               className="text-primary px-2 py-1 rounded-sm text-xs font-semibold "
               style={{ backgroundColor: nameToColor(category) }}
@@ -38,16 +38,17 @@ export default function CourseCard({
             </span>
             <span className="font-bold text-primary-500 text-md">${price}</span>
           </div>
-          {/* Category Tag */}
 
           {/* Title */}
-          <h3 className="font-semibold text-sm mt-2 mb-2 p-2 h-16 ">{title}</h3>
+          <h3 className="font-semibold text-sm mt-2 mb-2 h-16 truncate">
+            {title}
+          </h3>
 
           {/* Separator Line */}
           <div className="border-b w-full  border-gray-200 my-2" />
 
           {/* Rating & Review Section */}
-          <div className="flex items-center justify-between px-3 gap-4 py-3">
+          <div className="flex items-center justify-between gap-4 py-3">
             <div className="flex items-center space-x-1">
               <Star className="h-4 w-4 text-yellow-400 fill-current" />
               <span className="text-sm font-medium">{rating.toFixed(2)}</span>
