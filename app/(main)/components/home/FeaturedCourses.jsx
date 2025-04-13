@@ -76,67 +76,70 @@ import Link from "next/link";
 export default function FeaturedCourses({ courses }) {
   const FeatusedCourses = courses.slice(0, 4);
   return (
-    <section className=" max-w-7xl  mx-auto border border-r-gray-100 w-[1480px] px-10 py-10 ">
-      <div className="flex justify-between p-5">
-        <h2 className="text-2xl font-bold mb-4">Our feature courses</h2>
-        <p className="w-96 text-gray-500 text-sm">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 gap-6">
+        <h2 className="text-2xl md:text-3xl font-bold">Our feature courses</h2>
+        <p className="text-gray-500 text-sm max-w-xl">
           Vestibulum sed dolor sed diam mollis maximus vel nec dolor. Donec
           varius purus et eleifend porta.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-6">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {FeatusedCourses.map((course) => (
           <Link key={course.id} href={`/courses/${course.id}`}>
-            <Card className="flex  overflow-hidden group">
+            <Card className="flex flex-col sm:flex-row overflow-hidden group h-full">
               {/* Course Image */}
               <Image
                 width={400}
                 height={320}
                 src={course.image}
                 alt={course.title}
-                className="w-40 h-32 object-cover"
+                className="w-full sm:w-40 h-48 sm:h-32 object-cover"
               />
 
               {/* Course Details */}
-              <div className="p-4 flex-1">
-                <div className="flex items-center justify-between text-gray-900">
-                  {/* Category */}
-                  <span
-                    className=" px-2 py-1  text-xs"
-                    style={{
-                      backgroundColor: nameToColor(course.category, 0.2),
-                    }}
-                  >
-                    {course.category.toUpperCase()}
-                  </span>
-                  {/* Price */}
-                  <div className="flex items-center space-x-2 text-sm mt-1">
-                    <span className="font-bold text-gray-900">
-                      ${course.offer_price}
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between text-gray-900 mb-2">
+                    <span
+                      className="px-2 py-1 text-xs rounded"
+                      style={{
+                        backgroundColor: nameToColor(course.category, 0.2),
+                      }}
+                    >
+                      {course.category.toUpperCase()}
                     </span>
-                    <span className="text-gray-400 line-through">
-                      ${course.price}
-                    </span>
+                    <div className="flex items-center space-x-2 text-sm">
+                      <span className="font-bold text-gray-900">
+                        ${course.offer_price}
+                      </span>
+                      <span className="text-gray-400 line-through">
+                        ${course.price}
+                      </span>
+                    </div>
                   </div>
+
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-2 group-hover:text-primary-500 transition-colors">
+                    {course.title}
+                  </h3>
                 </div>
 
-                {/* Title */}
-                <h3 className="font-semibold text-sm mt-2 mb-1 line-clamp-2 group-hover:text-primary-500 transition-colors duration-300">
-                  {course.title}
-                </h3>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-2">
                   {/* Instructor */}
-                  <div className="flex items-center space-x-2 mt-1">
-                    <Avatar>
+                  <div className="flex items-center space-x-2">
+                    <Avatar className="h-6 w-6">
                       <AvatarImage
                         src={course.instructors[0].image}
-                        alt="@shadcn"
+                        alt={course.instructor}
                       />
                       <AvatarFallback>{course.instructor}</AvatarFallback>
                     </Avatar>
                     <p className="text-gray-500 text-xs">{course.instructor}</p>
                   </div>
-                  <div className="flex items-center space-x-1">
+
+                  {/* Rating */}
+                  <div className="flex items-center space-x-1 text-xs">
                     <Star className="h-3.5 w-3.5 text-yellow-400 fill-current" />
                     <span className="font-medium text-gray-900">
                       {course.rating}
@@ -144,21 +147,20 @@ export default function FeaturedCourses({ courses }) {
                     <span>({course.reviews.toLocaleString()})</span>
                   </div>
                 </div>
-                {/* Rating, Students, Level, Duration */}
-                <div className="flex items-center justify-between mt-2 text-xs   font-semibold">
-                  <span className="flex items-center space-x-1 gap-2 text-primary">
-                    <User className="size-5 text-secondary-500" />{" "}
-                    <p>
-                      {course.students}{" "}
-                      <span className="text-gray-500">Students</span>
-                    </p>
+
+                {/* Bottom Meta Info */}
+                <div className="flex flex-wrap gap-3 items-center justify-between mt-4 text-xs font-semibold text-gray-700">
+                  <span className="flex items-center gap-1 text-primary">
+                    <User className="size-4" />
+                    {course.students}{" "}
+                    <span className="text-gray-500">Students</span>
                   </span>
-                  <span className="flex items-center space-x-1 gap-2 ">
-                    <LineChart className="size-5 text-red-500" />
+                  <span className="flex items-center gap-1">
+                    <LineChart className="size-4 text-red-500" />
                     {course.level}
                   </span>
-                  <span className="flex items-center space-x-1 gap-2">
-                    <Clock className="size-5 text-success-500" />{" "}
+                  <span className="flex items-center gap-1">
+                    <Clock className="size-4 text-green-500" />
                     {course.duration}
                   </span>
                 </div>

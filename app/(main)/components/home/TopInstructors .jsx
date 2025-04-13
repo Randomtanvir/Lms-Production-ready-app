@@ -84,22 +84,27 @@ export default function TopInstructors({ instructors }) {
   const topInstructors = instructors.slice(0, 5);
 
   return (
-    <section className="w-full bg-white  py-20">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center text-[#1D2026] mb-10 leading-[48px] tracking-[-0.01em]">
+    <section className="w-full bg-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center text-[#1D2026] mb-10 leading-[1.2] tracking-[-0.01em]">
           Top instructor of the month
         </h2>
-        <div className="flex flex-wrap justify-between w-[1320px] gap-6 mb-10">
+
+        {/* Instructor Cards */}
+        <div className="flex flex-wrap justify-center sm:justify-between gap-6 mb-10">
           {topInstructors.map((instructor, index) => (
             <TopInstructorCard key={index} instructor={instructor} />
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8">
-          <p className="text-[14px] text-[#6E7485] text-center">
-            Thousands of students waiting for a instructor. Start teaching &
+
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+          <p className="text-sm text-[#6E7485] text-center sm:text-left">
+            Thousands of students are waiting for instructors. Start teaching &
             earning now!
           </p>
-          <button className="flex items-center gap-2 text-[#FF6636] font-medium">
+          <button className="flex items-center gap-2 text-[#FF6636] font-medium hover:underline transition">
             <span>Become an Instructor</span>
             <svg
               width="24"

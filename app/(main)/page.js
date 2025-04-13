@@ -16,23 +16,32 @@ export default async function Home() {
     <div className="bg-background text-primary">
       <Hero />
       <CategoriesSection />
-      <div className="relative ">
-        <BestSellingSection courses={courses} />
-        <div className="absolute left-1/2 -translate-x-1/2 top-3/4 mt-10 w-[1480px] bg-white px-10 py-10">
+
+      {/* Best Selling + Featured Courses */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 space-y-16">
+          <BestSellingSection courses={courses} />
           <FeaturedCourses courses={courses} />
         </div>
-      </div>
+      </section>
 
+      {/* Recent Added Courses */}
       <RecentAddedCourseList courses={courses} />
-      <div className="relative ">
-        <InstructorCard />
-        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 mt-20 w-[1480px] bg-white px-10 py-10">
+
+      {/* Instructor Section + Top Instructors */}
+      <section className="py-20 bg-gray-100">
+        <div className="container mx-auto px-4 space-y-16">
+          <InstructorCard />
           <TopInstructors instructors={instructors} />
         </div>
-      </div>
-      <section className="w-full  bg-white mt-[550px] ">
+      </section>
+
+      {/* Trusted Companies */}
+      <section className="py-20 bg-white">
         <TrustedCompanies />
       </section>
+
+      {/* CTA */}
       <JoinCourse />
     </div>
   );

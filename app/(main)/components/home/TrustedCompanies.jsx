@@ -51,30 +51,34 @@ const companies = [
 
 export default function TrustedCompanies({ smHeading = "" }) {
   return (
-    <div className=" flex h-[384px] w-[1320px] mx-auto items-center justify-center gap-4 bg-white">
-      <div className="w-2/6 text-center ">
-        <h3 className="text-2xl font-semibold text-[#1D2026] leading-tight tracking-tight mb-4">
-          {smHeading + "6.3k Trusted Companies"}
-        </h3>
-        <p className="text-sm text-[#6E7485] ">
-          Nullam egestas tellus at enim ornare tristique. Class aptent taciti
-          sociosqu ad litora torquent per conubia nostra.
-        </p>
-      </div>
+    <div className="w-full bg-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10">
+        {/* Left Text Section */}
+        <div className="lg:w-1/3 text-center lg:text-left">
+          <h3 className="text-2xl font-semibold text-[#1D2026] mb-4 leading-tight tracking-tight">
+            {smHeading + "6.3k Trusted Companies"}
+          </h3>
+          <p className="text-sm text-[#6E7485]">
+            Nullam egestas tellus at enim ornare tristique. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra.
+          </p>
+        </div>
 
-      <div className="flex flex-wrap gap-4 w-4/6">
-        {companies.map((company) => (
-          <div
-            key={company.id}
-            className="w-[calc(25%-12px)] h-[100px] bg-white shadow-md flex items-center justify-center p-4"
-          >
-            <img
-              src={company.imageUrl}
-              alt={company.name}
-              className="max-w-full max-h-full object-contain"
-            />
-          </div>
-        ))}
+        {/* Logos Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 flex-1 w-full">
+          {companies.map((company) => (
+            <div
+              key={company.id}
+              className="h-[100px] bg-white shadow-md flex items-center justify-center p-4"
+            >
+              <img
+                src={company.imageUrl}
+                alt={company.name}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
