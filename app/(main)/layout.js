@@ -8,8 +8,8 @@ import { Suspense } from "react";
 export default function MainLayout({ children }) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {/* <Navbars /> */}
-      {/* <Navigation /> */}
+      <Navbars />
+      <Navigation />
       <CourseProvider>
         <main>{children}</main>
       </CourseProvider>
