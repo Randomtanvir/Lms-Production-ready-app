@@ -5,10 +5,12 @@ import Image from "next/image";
 
 export default function FooterDownload() {
   return (
-    <div>
-      <h4 className="text-white font-semibold">DOWNLOAD OUR APP</h4>
-      <div className="mt-2 space-y-2">
-        <Card className="flex items-center justify-center gap-3 p-2 bg-gray-800">
+    <div className="px-4">
+      <h4 className="text-white font-semibold text-base pb-4">
+        DOWNLOAD OUR APP
+      </h4>
+      <div className="space-y-3">
+        <Card className="flex items-center gap-3 p-3 bg-gray-800 hover:bg-orange-600 transition-colors cursor-pointer">
           <Image
             src={Apple}
             width={30}
@@ -17,11 +19,11 @@ export default function FooterDownload() {
             className="p-1"
           />
           <div>
-            <p className="text-xs text-gray-400">Download on the</p>
+            <p className="text-xs text-gray-300">Download on the</p>
             <p className="text-white font-semibold text-sm">App Store</p>
           </div>
         </Card>
-        <Card className="flex items-center justify-center gap-3 p-2 bg-gray-800">
+        <Card className="flex items-center gap-3 p-3 bg-gray-800 hover:bg-orange-600 transition-colors cursor-pointer">
           <Image
             src={Google}
             width={30}
@@ -30,7 +32,7 @@ export default function FooterDownload() {
             className="p-1"
           />
           <div>
-            <p className="text-xs text-gray-400">Get it on</p>
+            <p className="text-xs text-gray-300">Get it on</p>
             <p className="text-white font-semibold text-sm">Google Play</p>
           </div>
         </Card>
